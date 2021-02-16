@@ -8,15 +8,21 @@ Please fork this repository and answer any questions on this markdown document.
 
 # Linux
 * What is the command to list the contents of a direcory, line by line and ordered by size ascending in human readable format?
+# ls -laShr
 * How would you add a DNS server to a network interface in Linux?
+# By edit the /etc/resolv.conf file
 * If the DNS server you've just added is not reachable, how can you get any particular hostname to resolve locally? 
+# By editing the /etc/hosts file
 * How would you check for SELinux related errors?
+# By checking the audit log file: /var/log/audit/audit.log
 * Write the commands to add 30GB disk space to a logical volume named "docker" that belongs to a logical group named "docker-group".
+# lvcreate -L +30G --name docker docker-group
 * In the root of this repository, create a Bash script called "listit.sh", when executed, this script must do the following (in order):
-    * Create a file called directories.list that contains the directory names only of the current directory.
+    * Create a file called directories.list that contains the directory names only of the current directory.(I do not understand the second part)
     * Add a line at the beginning of the directories.list file that reads "line one's line".
     * Output the first three lines of directories.list on the console.
     * Accept an integer parameter when executed and repeat the previous question's output x amount of times based on the parameter provided at execution.
+#   (DONE)
 * Commit and push your changes.
 
 # Docker
@@ -37,7 +43,17 @@ Please fork this repository and answer any questions on this markdown document.
 * Create an encrypted file called "secret" in the root of this repository that contains the root password of the database (the password must be "thisisadatabasepassword123456789!").
 * Change your Bash script to start the conainer using the root password from the "secret" file.
 * Commit and push your changes.
+#In progress
 
 # General
 * How would you ensure any change made to this Dockerfile is source controlled, approved, tested and deployed. Explain which tools you will use as if this was going into a production environment.
+# Create a new pipeline using jenkins (or any other preferred tool)
+# Seeing we already github,first create a docker registry for our image
+# Create a dockerhub repository and point registry to this repo
+# Create a new pipeline in jenkins, and configure it to clone git repo that has Dockerfile
+# Create build stage and test stage
+# Run build or configure a trigger to build job
+# Create a new stage to push image to dockerhub registry
+# The image is now in registry with build versions and can be pulled 
+
 * Commit and push your changes.
